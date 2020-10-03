@@ -18,6 +18,11 @@ namespace EconomiKids.Domain.AggregatesModel.PiggyBankAggregate
         private decimal initialBalance;
 
         /// <summary>
+        /// Withdraw and deposit transactions that affect the current balance
+        /// </summary>
+        private ConcurrentDictionary<Guid, PiggyBankTransaction> _transactions { get; }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="initialBalance">Start value to compute the current balance</param>
@@ -51,11 +56,6 @@ namespace EconomiKids.Domain.AggregatesModel.PiggyBankAggregate
         }
 
         /// <summary>
-        /// Actual value concidering the initial balance and transactions
-        /// </summary>
-        public decimal CurrentBalance => InitialBalance + _transactions.Values.Sum(a => a.TransactionValue);
-
-        /// <summary>
         /// Start value to compute the current balance
         /// </summary>
         public decimal InitialBalance
@@ -72,14 +72,14 @@ namespace EconomiKids.Domain.AggregatesModel.PiggyBankAggregate
         }
 
         /// <summary>
-        /// Withdraw and deposit transactions that affect the current balance
+        /// Actual value concidering the initial balance and transactions
         /// </summary>
-        public IEnumerable<PiggyBankTransaction> Transactions => _transactions.Values.ToList().AsReadOnly();
+        public decimal CurrentBalance => InitialBalance + _transactions.Values.Sum(a => a.TransactionValue);
 
         /// <summary>
         /// Withdraw and deposit transactions that affect the current balance
         /// </summary>
-        private ConcurrentDictionary<Guid, PiggyBankTransaction> _transactions { get; set; }
+        public IEnumerable<PiggyBankTransaction> Transactions => _transactions.Values.ToList().AsReadOnly();
 
         /// <summary>
         /// Deposit the given value into the Piggy Bank balance
@@ -113,7 +113,7 @@ namespace EconomiKids.Domain.AggregatesModel.PiggyBankAggregate
             }
 
             //Verify sufficient balance
-            if ((CurrentBalance - value) < 0)
+            if ((CurrentBalance + value) < 0)
                 throw new InvalidOperationException(Properties.Resources.InsufficientBalanceToWithdraw);
 
             //Create transaction
