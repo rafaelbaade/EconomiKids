@@ -30,10 +30,11 @@ namespace EconomiKids.Domain.AggregatesModel.PiggyBankAggregate
         /// <param name="id">Transaction identifier</param>
         /// <param name="transactionValue">Value of the transaction</param>
         /// <param name="date">Date and time that the transaction occured</param>
-        public PiggyBankTransaction(Guid id, decimal transactionValue, DateTime date) : this(transactionValue)
+        public PiggyBankTransaction(Guid id, decimal transactionValue, DateTime date)
         {
             Id = id;
             Date = date;
+            TransactionValue = transactionValue;
         }
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace EconomiKids.Domain.AggregatesModel.PiggyBankAggregate
         /// <summary>
         /// Indicate the transaction type
         /// </summary>
-        public PiggyBankTransactionType TransactionType => TransactionValue < 0 ? PiggyBankTransactionType.Withdraw : PiggyBankTransactionType.Deposit;
+        public PiggyBankTransactionType TransactionType { get; private set; }
 
         /// <summary>
         /// Value of the transaction
@@ -57,6 +58,8 @@ namespace EconomiKids.Domain.AggregatesModel.PiggyBankAggregate
                 //Transaction cant be zero
                 if (value == 0)
                     throw new ArgumentException(Properties.Resources.ValueCannotBeZero);
+
+                TransactionType = value < 0 ? PiggyBankTransactionType.Withdraw : PiggyBankTransactionType.Deposit;
 
                 transactionValue = value;
             }
