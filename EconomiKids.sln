@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EconomiKids.Domain", "EconomiKids.Domain\EconomiKids.Domain.csproj", "{B2508A0A-96B4-47A0-A986-8741DB906337}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{29243F76-D911-41AD-B28D-7F44DA235314}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AC1EDB8F-8730-425D-8B81-0C98CAF31572}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EconomiKids.Domain", "EconomiKids.Domain", "{28F60519-5F2B-4A1A-B342-19604BC4BE70}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EconomiKids.Domain", "src\EconomiKids.Domain\EconomiKids.Domain.csproj", "{06DC58D8-1C4B-494E-8E17-435420653993}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiggyBankUnitTests", "tests\Domain\PiggyBankUnitTests\PiggyBankUnitTests.csproj", "{481B8369-2155-4EAE-A828-D58190CDD998}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,16 +19,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B2508A0A-96B4-47A0-A986-8741DB906337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2508A0A-96B4-47A0-A986-8741DB906337}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2508A0A-96B4-47A0-A986-8741DB906337}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2508A0A-96B4-47A0-A986-8741DB906337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06DC58D8-1C4B-494E-8E17-435420653993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06DC58D8-1C4B-494E-8E17-435420653993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06DC58D8-1C4B-494E-8E17-435420653993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06DC58D8-1C4B-494E-8E17-435420653993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{481B8369-2155-4EAE-A828-D58190CDD998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{481B8369-2155-4EAE-A828-D58190CDD998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{481B8369-2155-4EAE-A828-D58190CDD998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{481B8369-2155-4EAE-A828-D58190CDD998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B2508A0A-96B4-47A0-A986-8741DB906337} = {29243F76-D911-41AD-B28D-7F44DA235314}
+		{28F60519-5F2B-4A1A-B342-19604BC4BE70} = {AC1EDB8F-8730-425D-8B81-0C98CAF31572}
+		{06DC58D8-1C4B-494E-8E17-435420653993} = {29243F76-D911-41AD-B28D-7F44DA235314}
+		{481B8369-2155-4EAE-A828-D58190CDD998} = {28F60519-5F2B-4A1A-B342-19604BC4BE70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {661F86DA-2187-4701-BF1B-9BE30A86187D}
