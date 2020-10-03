@@ -1,6 +1,11 @@
 # EconomiKids
 Solution to make financial education fun for kids
 
+[![GitHub license](https://img.shields.io/github/license/rafaelbaade/EconomiKids)](https://github.com/rafaelbaade/EconomiKids)
+
+<img src="https://rafaelbaade.visualstudio.com/_apis/GraphProfile/MemberAvatars/8881c102-e5e4-4ff9-b49a-2c848e7c6bc4?overrideDisplayName=EconomiKids&size=2" width="200" alt="EconomiKids logo"/>
+
+
 ## CI/CD
 
 | Branch | Build status | Last commit |
